@@ -1,0 +1,27 @@
+jobs:
+  - name: "Tech News Monitor"
+    url: "https://news.ycombinator.com"
+    selector: ".titleline > a"
+    extract: "text"
+    interval_minutes: 60
+    notify: ["console"]
+    on_change: true
+    max_items: 30
+
+  - name: "GitHub Trending"
+    url: "https://github.com/trending"
+    selector: "h2.h3 a"
+    extract: "text"
+    interval_minutes: 120
+    notify: ["console"]
+    on_change: true
+    max_items: 25
+
+  - name: "Python Jobs IL"
+    url: "https://www.alljobs.co.il/SearchResultVIP.aspx?page=1&position=python"
+    selector: ".job-content-top h3"
+    extract: "text"
+    interval_minutes: 360
+    notify: ["console", "email"]
+    on_change: true
+    max_items: 20
